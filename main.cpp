@@ -21,6 +21,9 @@ int main( int argc, char* args[] ) {
     			case SDL_MOUSEBUTTONDOWN:
     				controller.MouseDown(event.button.button, event.button.x, event.button.y);
     				break;
+    			case SDL_KEYDOWN:
+    				controller.KeyDown(event.key.keysym.sym);
+    				break;
     		}
 
     	}

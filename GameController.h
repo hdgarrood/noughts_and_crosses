@@ -10,11 +10,13 @@
 
 class Game_Controller {
 private:
-	SDL_Surface *screen, *board, *nought, *cross, *background;
+	SDL_Surface *screen, *board, *nought, *cross, *background, *restart_message;
 	TTF_Font* font;
+	void Reset();
 public:
 	Game_Controller();
 	void MouseDown(int button, int x, int y);
+	void KeyDown(int keysym);
 	virtual ~Game_Controller();
 };
 
