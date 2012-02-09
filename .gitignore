@@ -1,6 +1,6 @@
 *.exe
+*.dll
 .settings/
 *.o
 Debug/
-*.dll
 .cproject
