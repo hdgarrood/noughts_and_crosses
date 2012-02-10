@@ -15,13 +15,25 @@ const int SCREEN_BPP = 32;
 const int FRAMES_PER_SECOND = 20;
 const int TICKS_PER_FRAME = 1000 / FRAMES_PER_SECOND;
 
-enum GameStates
-{
+enum eGameState {
     STATE_NULL,
     STATE_MENU,
     STATE_GAME_ONEPLAYER,
     STATE_GAME_TWOPLAYER,
     STATE_EXIT
+};
+
+enum ePiece {
+	PIECE_NULL,
+	PIECE_CROSS,
+	PIECE_NOUGHT
+};
+
+enum eWinState {
+	NO_WIN,
+	DRAW,
+	WIN_NOUGHT,
+	WIN_CROSS
 };
 
 //colours

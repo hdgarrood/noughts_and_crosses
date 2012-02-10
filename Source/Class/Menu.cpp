@@ -28,7 +28,7 @@ void Menu::handle_events() {
 			fsm.set_next_state(STATE_EXIT);
 			break;
 		case SDL_KEYDOWN:
-			fsm.set_next_state(STATE_GAME_ONEPLAYER);
+			fsm.set_next_state(STATE_GAME_TWOPLAYER);
 			break;
 		}
 	}

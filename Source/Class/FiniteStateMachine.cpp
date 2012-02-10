@@ -8,6 +8,7 @@
 #include "FiniteStateMachine.h"
 #include "Menu.h"
 #include "GameOnePlayer.h"
+#include "GameTwoPlayer.h"
 
 Finite_State_Machine::Finite_State_Machine() {
 	currentStateID = STATE_NULL;
@@ -29,6 +30,9 @@ void Finite_State_Machine::change_state() {
         	break;
         case STATE_GAME_ONEPLAYER:
         	currentState = new Game_OnePlayer;
+        	break;
+        case STATE_GAME_TWOPLAYER:
+        	currentState = new Game_TwoPlayer;
         	break;
         }
 
