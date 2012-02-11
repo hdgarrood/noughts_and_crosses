@@ -15,7 +15,6 @@
 class Game_TwoPlayer : public GameState {
 private:
 	SDL_Surface *background, *noughtsTurnMessage, *crossTurnMessage, *noughtsWinMessage, *crossWinMessage, *drawMessage;
-	tMyMouseEvent leftMouse, rightMouse;
 	ePiece nextPiece;
 	eWinState wins;
 public:

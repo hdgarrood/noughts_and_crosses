@@ -8,8 +8,12 @@
 #ifndef GAMESTATE_H_
 #define GAMESTATE_H_
 
+#include "types.h"
+
 class GameState
 {
+protected:
+	tMyMouseEvent leftMouse, rightMouse;
 public:
     virtual void handle_events();
     virtual void do_logic() = 0;
