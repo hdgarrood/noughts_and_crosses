@@ -58,9 +58,10 @@ void Game_TwoPlayer::do_logic() {
 					else { nextPiece = PIECE_CROSS; }
 				}
 			}
-			leftMouse.reset();
 		}
 	}
+	leftMouse.reset();
+	rightMouse.reset();
 }
 
 void Game_TwoPlayer::render() {
