@@ -53,7 +53,7 @@ void Game_TwoPlayer::do_logic() {
 				//Find which cell it was in
 				int cellX = (3*relX) / board.width;
 				int cellY = (3*relY) / board.height;
-				if (board.place_piece(nextPiece, cellX, cellY) != -1) {
+				if (board.place_piece(nextPiece, cellX, cellY) != 1) {
 					if (nextPiece == PIECE_CROSS) { nextPiece = PIECE_NOUGHT; }
 					else { nextPiece = PIECE_CROSS; }
 				}
