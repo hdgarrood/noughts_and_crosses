@@ -14,6 +14,10 @@ class Board {
 private:
 	ePiece pieces[3][3];
 	SDL_Surface *board, *nought, *cross;
+	ePiece check_horizontal_wins();
+	ePiece check_vertical_wins();
+	ePiece check_diagonal_wins();
+	eWinState resolve_wins(ePiece piece);
 public:
 	Board();
 	void handle_events();

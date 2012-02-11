@@ -11,7 +11,7 @@
 class GameState
 {
 public:
-    virtual void handle_events() = 0;
+    virtual void handle_events();
     virtual void do_logic() = 0;
     virtual void render() = 0;
     virtual ~GameState();

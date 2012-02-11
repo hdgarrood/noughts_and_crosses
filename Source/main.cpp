@@ -18,6 +18,7 @@
 SDL_Surface *screen = NULL;
 SDL_Event event;
 Finite_State_Machine fsm;
+TTF_Font *font = NULL;
 
 int main( int argc, char* args[] ) {
 
@@ -25,6 +26,9 @@ int main( int argc, char* args[] ) {
 
     SDL_Init(SDL_INIT_EVERYTHING);
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE);
+
+    TTF_Init();
+    font = TTF_OpenFont("Resource/OptimusPrinceps.ttf",28);
 
     fsm.set_next_state(STATE_MENU);
     fsm.change_state();

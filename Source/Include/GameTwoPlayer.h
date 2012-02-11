@@ -8,14 +8,16 @@
 #ifndef GAMETWOPLAYER_H_
 #define GAMETWOPLAYER_H_
 
-#include "GameBase.h"
+#include "GameState.h"
 #include "Board.h"
 #include "types.h"
 
 class Game_TwoPlayer : public GameState {
 private:
-	SDL_Surface *background;
+	SDL_Surface *background, *noughtsTurnMessage, *crossTurnMessage, *noughtsWinMessage, *crossWinMessage, *drawMessage;
 	tMyMouseEvent leftMouse, rightMouse;
+	ePiece nextPiece;
+	eWinState wins;
 public:
 	Game_TwoPlayer();
 	void handle_events();

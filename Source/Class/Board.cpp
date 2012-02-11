@@ -43,40 +43,15 @@ int Board::place_piece(ePiece piece, int row, int column) {
 eWinState Board::check_wins() {
 	ePiece winPiece = PIECE_NULL;
 
-	//horizontal wins
-	for (int i=0;i!=3;i++) {
-		if ((pieces[i][0] == pieces[i][1]) && (pieces[i][1] == pieces [i][2])) {
-			winPiece = pieces[0][0];
-		}
-	}
+	winPiece = check_horizontal_wins();
+	if (winPiece != PIECE_NULL) { return resolve_wins(winPiece); }
 
-	//vertical wins
-	for (int i=0;i!=3;i++) {
-		if ((pieces[0][i] == pieces[1][i]) && (pieces[1][i] == pieces [2][i])) {
-			winPiece = pieces[0][i];
-		}
-	}
+	winPiece = check_vertical_wins();
+	if (winPiece != PIECE_NULL) { return resolve_wins(winPiece); }
 
 	//diagonal wins
-	if ((pieces[0][0] == pieces [1][1]) && (pieces[1][1] == pieces [2][2])) {
-		winPiece = pieces[0][0];
-	}
-
-	if ((pieces[0][2] == pieces [1][1]) && (pieces[1][1] == pieces [2][0])) {
-		winPiece = pieces[0][2];
-	}
-
-	//return if someone's won
-	switch (winPiece) {
-	case PIECE_NOUGHT:
-		return WIN_NOUGHT;
-		break;
-	case PIECE_CROSS:
-		return WIN_CROSS;
-		break;
-	default:
-		break;
-	}
+	winPiece = check_diagonal_wins();
+	if (winPiece != PIECE_NULL) { return resolve_wins(winPiece); }
 
 	//is the board full?
 	bool boardFull = true;
@@ -109,4 +84,40 @@ void Board::render() {
 			}
 		}
 	}
+}
+
+ePiece Board::check_horizontal_wins() {
+	for (int i=0;i!=3;i++) {
+		if ((pieces[i][0] == pieces[i][1]) && (pieces[i][1] == pieces [i][2])) {
+			 return pieces[i][0];
+		}
+	}
+	return PIECE_NULL;
+}
+
+ePiece Board::check_vertical_wins() {
+	for (int i=0;i!=3;i++) {
+		if ((pieces[0][i] == pieces[1][i]) && (pieces[1][i] == pieces [2][i])) {
+			return pieces[0][i];
+		}
+	}
+	return PIECE_NULL;
+}
+
+ePiece Board::check_diagonal_wins() {
+	if ((pieces[0][0] == pieces [1][1]) && (pieces[1][1] == pieces [2][2])) {
+		return pieces[0][0];
+	}
+
+	if ((pieces[0][2] == pieces [1][1]) && (pieces[1][1] == pieces [2][0])) {
+		return pieces[0][2];
+	}
+	return PIECE_NULL;
+}
+
+eWinState Board::resolve_wins(ePiece piece) {
+	if (piece == PIECE_NOUGHT) { return WIN_NOUGHT; }
+	else if (piece == PIECE_CROSS) { return WIN_CROSS; }
+
+	return NO_WIN;
 }
