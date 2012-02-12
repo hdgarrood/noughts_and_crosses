@@ -35,10 +35,7 @@ Game_TwoPlayer::~Game_TwoPlayer() {
 }
 
 void Game_TwoPlayer::handle_events() {
-	//forward send for external events
 	GameState::handle_events();
-
-	//internal events
 	wins = board.check_wins();
 }
 
@@ -46,8 +43,8 @@ void Game_TwoPlayer::do_logic() {
 	if (wins == NO_WIN) {
 		if (leftMouse.pressed) {
 			//If the click was inside the board
-			int relX = leftMouse.x - board.x;
-			int relY = leftMouse.y - board.y;
+			int relX = leftMouse.press.x - board.x;
+			int relY = leftMouse.press.y - board.y;
 
 			if ((relX > 0) && (relY > 0) && (relX < board.width) && (relY < board.height)) {
 				//Find which cell it was in
@@ -60,8 +57,6 @@ void Game_TwoPlayer::do_logic() {
 			}
 		}
 	}
-	leftMouse.reset();
-	rightMouse.reset();
 }
 
 void Game_TwoPlayer::render() {

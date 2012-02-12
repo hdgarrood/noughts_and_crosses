@@ -7,7 +7,7 @@
 
 #include "SDL/SDL.h"
 #include "Board.h"
-#include "constants.h"
+#include "types.h"
 #include "functions.h"
 #include "screen.h"
 

@@ -13,7 +13,7 @@
 class GameState
 {
 protected:
-	tMyMouseEvent leftMouse, rightMouse;
+	tMyMouseEvent leftMouse;
 public:
     virtual void handle_events();
     virtual void do_logic() = 0;

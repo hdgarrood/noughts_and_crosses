@@ -8,7 +8,7 @@
 #ifndef BOARD_H_
 #define BOARD_H_
 
-#include "constants.h"
+#include "types.h"
 
 class Board {
 private:

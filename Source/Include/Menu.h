@@ -9,10 +9,12 @@
 #define MENU_H_
 
 #include "GameState.h"
+#include "Button.h"
 
 class Menu : public GameState {
 private:
-    //SDL_Surface *background;
+    SDL_Surface *background, *button, *onePlayerMessage, *twoPlayerMessage;
+    Button onePlayerButton, twoPlayerButton;
 public:
     Menu();
     ~Menu();
