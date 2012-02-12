@@ -60,21 +60,21 @@ void Game_TwoPlayer::do_logic() {
 }
 
 void Game_TwoPlayer::render() {
-	apply_surface(0,0,background,screen,NULL);
+	apply_surface(0,0,background,screen);
 	board.render();
 	switch (wins) {
 	case WIN_CROSS:
-		apply_surface(100,520,crossWinMessage,screen,NULL);
+		apply_surface(100,520,crossWinMessage,screen);
 		break;
 	case WIN_NOUGHT:
-		apply_surface(100,520,noughtsWinMessage,screen,NULL);
+		apply_surface(100,520,noughtsWinMessage,screen);
 		break;
 	case DRAW:
-		apply_surface(100,520,drawMessage,screen,NULL);
+		apply_surface(100,520,drawMessage,screen);
 		break;
 	case NO_WIN:
-		if (nextPiece == PIECE_CROSS) { apply_surface(100,520,crossTurnMessage,screen,NULL); }
-		else { apply_surface(100,520,noughtsTurnMessage,screen,NULL); }
+		if (nextPiece == PIECE_CROSS) { apply_surface(100,520,crossTurnMessage,screen); }
+		else { apply_surface(100,520,noughtsTurnMessage,screen); }
 		break;
 	}
 }

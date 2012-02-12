@@ -13,7 +13,7 @@
 
 class Menu : public GameState {
 private:
-    SDL_Surface *background, *button, *onePlayerMessage, *twoPlayerMessage;
+    SDL_Surface *background, *button, *onePlayerMessage, *twoPlayerMessage, *title;
     Button onePlayerButton, twoPlayerButton;
 public:
     Menu();

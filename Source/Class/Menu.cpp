@@ -13,8 +13,9 @@
 #include "screen.h"
 #include "event.h"
 
-Menu::Menu() : onePlayerButton(220,200,"One Player"), twoPlayerButton(220,300,"Two Player") {
+Menu::Menu() : onePlayerButton(220,250,"One Player"), twoPlayerButton(220,350,"Two Player") {
 	background = load_image("Resource/background.png");
+	title = load_image("Resource/title.png");
 }
 
 Menu::~Menu() {
@@ -35,19 +36,19 @@ void Menu::do_logic() {
 		}
 	}
 	if (leftMouse.released) {
+		if (onePlayerButton.check_hover(leftMouse.release.x,leftMouse.release.y) && onePlayerButton.get_state() == PRESSED)
+			fsm.set_next_state(STATE_GAME_ONEPLAYER);
+		if (twoPlayerButton.check_hover(leftMouse.release.x,leftMouse.release.y) && twoPlayerButton.get_state() == PRESSED)
+			fsm.set_next_state(STATE_GAME_TWOPLAYER);
+
 		onePlayerButton.change_state(NORMAL);
 		twoPlayerButton.change_state(NORMAL);
-		if (onePlayerButton.check_hover(leftMouse.release.x,leftMouse.release.y)) {
-			fsm.set_next_state(STATE_GAME_ONEPLAYER);
-		}
-		if (twoPlayerButton.check_hover(leftMouse.release.x,leftMouse.release.y)) {
-			fsm.set_next_state(STATE_GAME_TWOPLAYER);
-		}
 	}
 }
 
 void Menu::render() {
 	apply_surface(0,0,background,screen);
+	apply_surface(45,30,title,screen);
 	onePlayerButton.render();
 	twoPlayerButton.render();
 }

@@ -23,6 +23,7 @@ public:
 	bool check_hover(int x, int y);
 	void render();
 	void change_state(eButtonState newState);
+	eButtonState get_state();
 };
 
 #endif /* BUTTON_H_ */

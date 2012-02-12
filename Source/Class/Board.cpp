@@ -66,7 +66,7 @@ eWinState Board::check_wins() {
 }
 
 void Board::render() {
-	apply_surface(x,y,board,screen,NULL);
+	apply_surface(x,y,board,screen);
 
 	for (int i=0;i!=3;i++) {
 		for (int j=0;j!=3;j++) {
@@ -75,10 +75,10 @@ void Board::render() {
 			case PIECE_NULL:
 				break;
 			case PIECE_NOUGHT:
-				apply_surface(x+(i*width/3),y+(j*height/3),nought,screen,NULL);
+				apply_surface(x+(i*width/3),y+(j*height/3),nought,screen);
 				break;
 			case PIECE_CROSS:
-				apply_surface(x+(i*width/3),y+(j*height/3),cross,screen,NULL);
+				apply_surface(x+(i*width/3),y+(j*height/3),cross,screen);
 				break;
 
 			}

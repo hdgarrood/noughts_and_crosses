@@ -14,6 +14,7 @@
 #include "screen.h"
 #include "fsm.h"
 #include "event.h"
+#include "functions.h"
 
 SDL_Surface *screen = NULL;
 SDL_Event event;
@@ -25,9 +26,16 @@ int main( int argc, char* args[] ) {
     Timer timer;
 
     SDL_Init(SDL_INIT_EVERYTHING);
+    TTF_Init();
+
+    SDL_WM_SetCaption("Noughts & Crosses",NULL);
+
+    SDL_Surface *icon = SDL_LoadBMP("Resource/icon.bmp");
+    SDL_SetColorKey(icon,SDL_SRCCOLORKEY,SDL_MapRGB(icon->format,255,255,255));
+    SDL_WM_SetIcon(icon,NULL);
+
     screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_BPP, SDL_SWSURFACE);
 
-    TTF_Init();
     font = TTF_OpenFont("Resource/OptimusPrinceps.ttf",28);
 
     fsm.set_next_state(STATE_MENU);

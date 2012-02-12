@@ -56,9 +56,14 @@ void Button::render() {
 	tPoint text_position;
 	text_position.x = mask.x + ((mask.w - text->w) / 2);
 	text_position.y = mask.y + ((mask.h - text->h) / 2);
+	if (current_state == PRESSED) text_position.y += 5;
 	apply_surface(text_position.x,text_position.y,text,screen);
 }
 
 void Button::change_state(eButtonState newState) {
 	current_state = newState;
+}
+
+eButtonState Button::get_state() {
+	return current_state;
 }
