@@ -57,4 +57,10 @@ enum eWinState {
 	WIN_CROSS
 };
 
+enum eDifficulty {
+	DIFFICULTY_RANDOM,
+	DIFFICULTY_NORMAL,
+	DIFFICULTY_HARD
+};
+
 #endif /* TYPES_H_ */
