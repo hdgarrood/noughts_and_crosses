@@ -13,7 +13,7 @@
 #include "screen.h"
 #include "event.h"
 
-Menu::Menu() : onePlayerButton(220,200), twoPlayerButton(220,300) {
+Menu::Menu() : onePlayerButton(220,200,"One Player"), twoPlayerButton(220,300,"Two Player") {
 	background = load_image("Resource/background.png");
 }
 

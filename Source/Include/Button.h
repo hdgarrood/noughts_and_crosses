@@ -10,14 +10,15 @@
 
 #include "SDL/SDL.h"
 #include "types.h"
+#include <string>
 
 class Button {
 private:
-	SDL_Surface *normal, *active, *pressed;
+	SDL_Surface *normal, *active, *pressed, *text;
 	SDL_Rect mask;
 	eButtonState current_state;
 public:
-	Button(int x, int y);
+	Button(int x, int y, std::string message);
 	virtual ~Button();
 	bool check_hover(int x, int y);
 	void render();
